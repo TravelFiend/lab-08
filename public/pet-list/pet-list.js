@@ -1,4 +1,3 @@
-
 import App from './YourResourceApp.js';
 
 const app = new App();
