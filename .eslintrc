@@ -9,6 +9,7 @@
   },
   "env": {
     "browser": true,
+    "node": true,
     "es6": true
   },
   "globals": {
@@ -26,11 +27,11 @@
       }
     ],
     "quotes": [
-      "error", 
+      "error",
       "single",
-      { 
+      {
         "avoidEscape": true,
-        "allowTemplateLiterals": true 
+        "allowTemplateLiterals": true
       }
     ],
     "no-multi-spaces": [

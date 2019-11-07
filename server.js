@@ -21,14 +21,30 @@ app.use(express.static('public'));
 
 
 // API Routes
+app.get('/api/cats', async(req, res) => {
 
-// http method and path...
+    try {
+        const result = await client.query(`
+            SELECT
+                id,
+                name,
+                type,
+                url,
+                age,
+                flies
+            FROM PETS;
+        `);
 
+        res.json(result.rows);
+    }
+    catch (err) {
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
 
 // Start the server
-// (use PORT from .env!)
-const PORT = process.env.PORT;
-
 app.listen(PORT, () => {
     console.log('server running on PORT', PORT);
 });
