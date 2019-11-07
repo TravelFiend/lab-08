@@ -21,7 +21,7 @@ app.use(express.static('public'));
 
 
 // API Routes
-app.get('/api/cats', async(req, res) => {
+app.get('/api/pets', async(req, res) => {
 
     try {
         const result = await client.query(`
