@@ -2,7 +2,8 @@ require('dotenv').config();
 const pg = require('pg');
 const Client = pg.Client;
 // import seed data:
-const data = require('./your-data.js');
+const types = require('./types');
+const pets = require('./pets.js');
 
 run();
 
@@ -13,13 +14,31 @@ async function run() {
         await client.connect();
 
         // "Promise all" does a parallel execution of async tasks
+        const savedTypes = await Promise.all(
+            types.map(async type => {
+                const result = await client.query(`
+                    INSERT INTO types (name)
+                    VALUES ($1)
+                    RETURNING *;
+                `,
+                [type]);
+
+                return result.rows[0];
+            })
+        );
+
         await Promise.all(
             // map every item in the array data
-            data.map(item => {
+            pets.map(pet => {
+                const type = savedTypes.find(type => {
+                    return type.name === pet.type;
+                });
 
-                // Use a "parameterized query" to insert the data,
-                // Don't forget to "return" the client.query promise!
-
+                return client.query(`
+                    INSERT INTO pets (name, type,_id url, age, flies)
+                    VALUES ($1, $2, $3, $4, $5);
+                `,
+                [pet.name, pet.type, pet.url, pet.age, pet.flies]);
             })
         );
 
