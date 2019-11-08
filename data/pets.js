@@ -17,7 +17,7 @@ module.exports = [
         name: 'Goldfish',
         type: 'fish',
         url: '../public/assests/goldfish.jpg',
-        age: '.5',
+        age: '0',
         flies: 'false'
     },
     {
