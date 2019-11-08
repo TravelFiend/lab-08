@@ -27,12 +27,12 @@ app.get('/api/pets', async(req, res) => {
     try {
         const result = await client.query(`
             SELECT
-                c.*,
+                p.*,
                 t.name as type
-            FROM pets c
+            FROM pets p
             JOIN types t
-            ON   c.type_id = t.id
-            ORDER BY c.age;
+            ON   p.type_id = t.id
+            ORDER BY p.age;
         `);
 
         res.json(result.rows);

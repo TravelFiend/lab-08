@@ -10,7 +10,7 @@ class Header extends Component {
                 </div>
                 <nav>
                     <a href="./">Home</a>
-                    <a href="./">Pet List</a>
+                    <a href="./pet-list.html">Pet List</a>
                     <a href="./pet-form.html">Add a Pet</a>
                 </nav>
             </header>
