@@ -1,4 +1,4 @@
-import App from './YourResourceApp.js';
+import PetListApp from './PetListApp.js';
 
-const app = new App();
-document.body.prepend(app.renderDOM());
+const petListApp = new PetListApp();
+document.body.prepend(petListApp.renderDOM());

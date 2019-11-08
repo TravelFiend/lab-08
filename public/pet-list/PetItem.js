@@ -13,7 +13,7 @@ class PetItem extends Component {
                 <div class="image-container">
                     <img src="${pet.url}" alt="${pet.name} image">
                 </div>
-                <p class="year">${pet.age}</p>
+                <p class="age">${pet.age}</p>
             </li>
         `;
     }
