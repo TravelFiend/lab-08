@@ -21,7 +21,7 @@ class PetForm extends Component {
                 console.log(saved);
                 window.location = 'pet-list.html'
             }
-            catch {
+            catch (err) {
                 console.log('pet not saved :(', err);
             }
         });

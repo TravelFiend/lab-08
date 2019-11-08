@@ -5,6 +5,7 @@ const Client = pg.Client;
 const types = require('./types');
 const pets = require('./pets.js');
 
+console.log(process.env.DATABASE_URL);
 run();
 
 async function run() {
@@ -35,7 +36,7 @@ async function run() {
                 });
 
                 return client.query(`
-                    INSERT INTO pets (name, type,_id url, age, flies)
+                    INSERT INTO pets (name, type_id, url, age, flies)
                     VALUES ($1, $2, $3, $4, $5);
                 `,
                 [pet.name, pet.type, pet.url, pet.age, pet.flies]);
