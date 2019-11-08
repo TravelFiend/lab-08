@@ -9,8 +9,7 @@ class Header extends Component {
                     <h1>Pete's Pets</h1>
                 </div>
                 <nav>
-
-                <a href="./">Home</a>
+                    <a href="./">Home</a>
                     <a href="./pet-list.html">Pet List</a>
                     <a href="./pet-form.html">Add a Pet</a>
                 </nav>
