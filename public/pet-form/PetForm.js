@@ -1,15 +1,29 @@
 import Component from '../Component.js';
+import { addPet } from '../services/pet-api.js';
 
 class PetForm extends Component {
     onRender(form){
-        form.addEventListener('submit', () => {
+        form.addEventListener('submit', async event => {
             event.preventDefault();
 
             const formData = new FormData(form);
 
-            // const pet = {
-            //     name: 
-            // }
+            const pet = {
+                name: formData.get('name'),
+                type: formData.get('dropdown'),
+                url: formData.get('pic'),
+                age: parseInt(formData.get('age')),
+                flies: formData.get('flight') === 'on'
+            }
+
+            try {
+                const saved = await addPet(pet);
+                console.log(saved);
+                window.location = 'pet-list.html'
+            }
+            catch (err) {
+                console.log('pet not saved :(', err);
+            }
         });
     }
 
@@ -20,27 +34,27 @@ class PetForm extends Component {
                 <form>
                     <div class="inputs">
                         <label for="name">Which animal?</label>
-                        <input type="text" name="name">
+                        <input type="text" id="name" name="name">
                     </div>
 
                     <div class="inputs">
                         <label for="dropdown">What type of animal?</label>
-                        <select name="dropdown"></select>
+                        <select id="dropdown" name="dropdown"></select>
                     </div>
 
                     <div class="inputs">
                         <label for="flight">Link to image?</label>
-                        <input type="text" name="flight" placeholder="'https://images.pexels.com/photos/417142/pexels-photo-417142.jpeg?    auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'">
+                        <input type="text" id="pic" name="pic" placeholder="'https://images.pexels.com/photos/417142/pexels-photo-417142.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'">
                     </div>
 
                     <div class="inputs">
                         <label for="age">How old is your pet?</label>
-                        <input type="number" name="age">
+                        <input type="number" id="age" name="age">
                     </div>
 
                     <div class="inputs">
                         <label for="flight">Does it fly?</label>
-                        <input type="checkbox" name="flight">Yes
+                        <input type="checkbox" id="flight" name="flight">Yes
                     </div>
                     <button>Add your pet</button>
                 </form>
