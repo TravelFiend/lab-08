@@ -29,7 +29,7 @@ app.get('/api/pets', async(req, res) => {
             SELECT
                 c.*,
                 t.name as type
-            FROM cats c
+            FROM pets c
             JOIN types t
             ON   c.type_id = t.id
             ORDER BY c.age;

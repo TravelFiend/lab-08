@@ -23,7 +23,7 @@ async function run() {
                 id SERIAL PRIMARY KEY NOT NULL,
                 name VARCHAR(256) NOT NULL
             );
-            CREATE TABLE cats (
+            CREATE TABLE pets (
                 id SERIAL PRIMARY KEY NOT NULL,
                 name VARCHAR(256) NOT NULL,
                 type_id INTEGER NOT NULL REFERENCES types(id),
