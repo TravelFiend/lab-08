@@ -1,10 +1,22 @@
 import Component from '../Component.js';
 
 class PetForm extends Component {
+    onRender(form){
+        form.addEventListener('submit', () => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            // const pet = {
+            //     name: 
+            // }
+        });
+    }
+
     renderHTML(){
         return /*html*/`
             <div class="form">
-                <h2>Make you a new pet!</h2>
+                <h2>Enter a pet!</h2>
                 <form>
                     <div class="inputs">
                         <label for="name">Which animal?</label>
@@ -30,6 +42,7 @@ class PetForm extends Component {
                         <label for="flight">Does it fly?</label>
                         <input type="checkbox" name="flight">Yes
                     </div>
+                    <button>Add your pet</button>
                 </form>
             </div>
         `;
