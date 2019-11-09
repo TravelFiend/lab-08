@@ -29,9 +29,8 @@ class PetForm extends Component {
 
     renderHTML(){
         return /*html*/`
-            <div class="form">
-                <h2>Enter a pet!</h2>
                 <form>
+                    <h2>Enter a pet!</h2>
                     <div class="inputs">
                         <label for="name">Which animal?</label>
                         <input type="text" id="name" name="name">
@@ -58,7 +57,6 @@ class PetForm extends Component {
                     </div>
                     <button>Add your pet</button>
                 </form>
-            </div>
         `;
     }
 }

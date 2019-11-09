@@ -2,7 +2,7 @@ require('dotenv').config();
 const pg = require('pg');
 const Client = pg.Client;
 // import seed data:
-const types = require('./types');
+const types = require('./types.js');
 const pets = require('./pets.js');
 
 console.log(process.env.DATABASE_URL);
@@ -39,7 +39,7 @@ async function run() {
                     INSERT INTO pets (name, type_id, url, age, flies)
                     VALUES ($1, $2, $3, $4, $5);
                 `,
-                [pet.name, pet.type, pet.url, pet.age, pet.flies]);
+                [pet.name, type.id, pet.url, pet.age, pet.flies]);
             })
         );
 
