@@ -1,7 +1,6 @@
 .pet-item {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     border: 2px solid rgb(51, 3, 15);
     border-radius: 20px;
@@ -12,4 +11,5 @@
     background: rgb(155, 7, 44);
     color: rgb(237, 236, 247);
     padding: 20px;
+    font-family: sans-serif;
 }
