@@ -1,6 +1,5 @@
 .pets {
-    margin: 0 auto;
+    margin: 30px auto;
     display: flex;
-    height: 80%;
     width: 80vw;
 }
