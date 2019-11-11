@@ -2,7 +2,7 @@ import Component from '../Component.js';
 import Header from '../common/Header.js';
 import Loading from '../common/Loading.js';
 import PetDetail from './PetDetail.js';
-import { getPet } from '../services/pet-api.js';
+import { getPets } from '../services/pet-api.js';
 
 class PetDetailApp extends Component {
 
@@ -26,7 +26,7 @@ class PetDetailApp extends Component {
         }
 
         try {
-            const pet = await getPet(id);
+            const pet = await getPets(id);
             const petDetail = new PetDetail({ pet });
             main.appendChild(petDetail.renderDOM());
         }
