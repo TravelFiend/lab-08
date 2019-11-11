@@ -20,6 +20,7 @@ class PetDetailApp extends Component {
         // extracting query param for id of pet to get
         const searchParams = new URLSearchParams(window.location.search);
         const id = searchParams.get('id');
+console.log(id);
 
         // no id? bail and go back to list
         if (!id) {
@@ -29,9 +30,7 @@ class PetDetailApp extends Component {
 
         try {
             const pet = await getPets(id);
-            const petDetail = new PetDetail({
-                pet
-            });
+            const petDetail = new PetDetail({ pet });
             main.appendChild(petDetail.renderDOM());
         } catch (err) {
             console.log(err);
