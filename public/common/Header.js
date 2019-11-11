@@ -12,6 +12,7 @@ class Header extends Component {
                     <a href="./">Home</a>
                     <a href="./pet-list.html">Pet List</a>
                     <a href="./pet-form.html">Add a Pet</a>
+                    <a href="./pet-detail.html">Pet Details</a>
                 </nav>
             </header>
         `;

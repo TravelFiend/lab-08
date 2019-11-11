@@ -86,6 +86,38 @@ app.get('/api/types', async(req, res) => {
         });
     }
 });
+
+app.get('/api/pets', async(req, res) => {
+    const id = req.params.id;
+
+    try {
+        const result = await client.query(`
+            SELECT
+                p.*,
+                t.name as type
+            FROM pets p
+            JOIN types t
+            ON   p.type_id = t.id
+            WHERE p.id = $1
+        `,
+        [id]);
+
+        const pet = result.rows[0];
+        if (!pet) {
+            res.status(404).json({
+                error: `Pet id does not exist.`
+            });
+        } else {
+            ReadableStream.json(result.rows[0]);
+        }
+
+        res.json(result.rows);
+    } catch (err) {
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
 // Start the server
 app.listen(PORT, () => {
     console.log('server running on PORT', PORT);
