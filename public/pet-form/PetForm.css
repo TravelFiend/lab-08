@@ -26,3 +26,7 @@ h2 {
 .inputs {
     margin: 20px;
 }
+
+#dropdown {
+    width: 130px;
+}

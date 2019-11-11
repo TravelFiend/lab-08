@@ -14,12 +14,12 @@ class PetForm extends Component {
                 url: formData.get('pic'),
                 age: parseInt(formData.get('age')),
                 flies: formData.get('flight') === 'on'
-            }
+            };
 
             try {
                 const saved = await addPet(pet);
                 console.log(saved);
-                window.location = 'pet-list.html'
+                window.location = 'pet-list.html';
             }
             catch (err) {
                 console.log('pet not saved :(', err);
@@ -28,6 +28,13 @@ class PetForm extends Component {
     }
 
     renderHTML(){
+        const types = this.props.types;
+        const dropList = types.map(type => {
+            return `<option value="${type.id}">${type.name}</option>`;
+        });
+
+        const joinedDropList = dropList.join('');
+
         return /*html*/`
                 <form>
                     <h2>Enter a pet!</h2>
@@ -38,7 +45,9 @@ class PetForm extends Component {
 
                     <div class="inputs">
                         <label for="dropdown">What type of animal?</label>
-                        <select id="dropdown" name="dropdown"></select>
+                        <select id="dropdown" name="dropdown">
+                            ${joinedDropList}
+                        </select>
                     </div>
 
                     <div class="inputs">
