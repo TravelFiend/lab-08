@@ -30,6 +30,8 @@ console.log(id);
 
         try {
             const pet = await getPets(id);
+            console.log(pet);
+            
             const petDetail = new PetDetail({ pet });
             main.appendChild(petDetail.renderDOM());
         } catch (err) {

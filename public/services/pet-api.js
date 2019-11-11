@@ -1,7 +1,7 @@
 const URL = '/api';
 
-export async function getPets() {
-    const url = `${URL}/pets`;
+export async function getPets(id) {
+    const url = `${URL}/pets/${id}`;
 
     const response = await fetch(url);
     const data = await response.json();
