@@ -16,7 +16,7 @@ export async function getTypes() {
     return data;
 }
 
-export async function addPet(pet) {
+export async function addPets(pet) {
     const url = `${URL}/pets`;
 
     const response = await fetch(url, {

@@ -1,5 +1,5 @@
 import Component from '../Component.js';
-import { addPet } from '../services/pet-api.js';
+import { addPets } from '../services/pet-api.js';
 
 class PetForm extends Component {
     onRender(form){
@@ -10,14 +10,14 @@ class PetForm extends Component {
 
             const pet = {
                 name: formData.get('name'),
-                type: formData.get('dropdown'),
+                typeId: formData.get('dropdown'),
                 url: formData.get('pic'),
                 age: parseInt(formData.get('age')),
                 flies: formData.get('flight') === 'on'
             };
 
             try {
-                const saved = await addPet(pet);
+                const saved = await addPets(pet);
                 console.log(saved);
                 window.location = `pet-list.html?id=${saved.id}`;
             }

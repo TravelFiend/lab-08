@@ -51,8 +51,8 @@ app.post('/api/pets', async(req, res) => {
 
     try {
         const result = await client.query(`
-            INSERT INTO pets (name, type_id, url, year, lives, flies)
-            VALUES ($1, $2, $3, $4, $5, $6)
+            INSERT INTO pets (name, type_id, url, age, flies)
+            VALUES ($1, $2, $3, $4, $5)
             RETURNING *;
         `,
         [pet.name, pet.typeId, pet.url, pet.age, pet.canFly]
