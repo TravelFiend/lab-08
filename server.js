@@ -33,6 +33,7 @@ app.get('/api/pets', async(req, res) => {
             JOIN types t
             ON   p.type_id = t.id
             ORDER BY p.age;
+            //WHERE c.id = $1
         `);
 
         res.json(result.rows);
@@ -44,7 +45,6 @@ app.get('/api/pets', async(req, res) => {
     }
 });
 
-/// fix this part!
 
 app.post('/api/pets', async(req, res) => {
     const pet = req.body;

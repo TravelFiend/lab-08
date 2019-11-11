@@ -2,14 +2,14 @@ module.exports = [
     {
         name: 'Flying Fish',
         type: 'fish',
-        url: '../public/assests/flying-fish.jpg',
+        url: '../public/assets/flying-fish.jpg',
         age: 1,
         flies: 'true'
     },
     {
         name: 'Chicken',
         type: 'bird',
-        url: '../public/assests/chicken.jpg',
+        url: '../public/assets/chicken.jpg',
         age: 2,
         flies: 'false'
     },
