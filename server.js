@@ -22,7 +22,30 @@ app.use(express.json());
 
 
 // API Routes
+// app.get('/api/pets', async(req, res) => {
+
+//     try {
+//         const result = await client.query(`
+//             SELECT
+//                 p.*,
+//                 t.name as type
+//             FROM pets p
+//             JOIN types t
+//             ON   p.type_id = t.id
+//             ORDER BY p.age;
+//         `);
+
+//         res.json(result.rows);
+//     }
+//     catch (err) {
+//         res.status(500).json({
+//             error: err.message || err
+//         });
+//     }
+// });
+
 app.get('/api/pets', async(req, res) => {
+    const id = req.params.id;
 
     try {
         const result = await client.query(`
@@ -32,9 +55,18 @@ app.get('/api/pets', async(req, res) => {
             FROM pets p
             JOIN types t
             ON   p.type_id = t.id
-            ORDER BY p.age;
-            //WHERE c.id = $1
-        `);
+            WHERE p.id = $1
+        `,
+        [id]);
+
+        const pet = result.rows[0];
+        if (!pet) {
+            res.status(404).json({
+                error: `Pet id does not exist.`
+            });
+        } else {
+            ReadableStream.json(result.rows[0]);
+        }
 
         res.json(result.rows);
     }

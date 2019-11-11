@@ -1,4 +1,3 @@
-
 import Component from '../Component.js';
 import PetItem from './PetItem.js';
 
@@ -13,7 +12,6 @@ class PetList extends Component {
             const petItemDOM = petItem.renderDOM();
             dom.appendChild(petItemDOM);
         });
-
     }
 
     renderHTML() {

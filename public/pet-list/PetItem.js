@@ -6,14 +6,10 @@ class PetItem extends Component {
 
         return /*html*/`
             <li class="pet-item">
-                <div class="info-container">
                     <h2>${pet.name}</h2>
                     <p class="pet-type">${pet.type}</p>
-                </div>
-                <div class="image-container">
-                    <img src="${pet.url}" alt="${pet.name} image">
-                </div>
-                <p class="age">${pet.age}</p>
+                    <img class="pet-img" src="${pet.url}" alt="">
+                <p class="age">Age: ${pet.age}</p>
             </li>
         `;
     }
