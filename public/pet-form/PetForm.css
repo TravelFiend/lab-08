@@ -1,21 +1,15 @@
-.form {
-    height: 70vh;
-    width: 50vw;
-    margin: 30px auto;
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 70vh;
+    width: 50vw;
+    margin: 30px auto;
     font-family: sans-serif;
     background: rgb(107, 7, 32);
     color: rgb(237, 236, 247);
     border: 3px solid rgb(51, 3, 15);
     border-radius: 40px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 label {
@@ -31,4 +25,8 @@ h2 {
 
 .inputs {
     margin: 20px;
+}
+
+#dropdown {
+    width: 130px;
 }
