@@ -15,12 +15,9 @@ class PetDetailApp extends Component {
         const loading = new Loading({ loading: true });
         main.appendChild(loading.renderDOM());
 
-        // extracting query param for id of pet to get
         const searchParams = new URLSearchParams(window.location.search);
         const id = searchParams.get('id');
-console.log(id);
 
-        // no id? bail and go back to list
         if (!id) {
             window.location = 'pet-list.html';
             return;
@@ -28,9 +25,10 @@ console.log(id);
 
         try {
             const pet = await getPet(id);
-            console.log(pet);
             
             const petDetail = new PetDetail({ pet });
+            console.log(typeof petDetail);
+            
             main.appendChild(petDetail.renderDOM());
         } catch (err) {
             console.log(err);

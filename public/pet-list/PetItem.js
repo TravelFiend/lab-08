@@ -5,8 +5,8 @@ class PetItem extends Component {
         const pet = this.props.pet;
 
         return /*html*/`
-            <li class="pet-item">
-                <a href="pet-detail.html?id=${pet.id}">
+            <li>
+                <a class="pet-item" href="pet-detail.html?id=${pet.id}">
                     <h2>${pet.name}</h2>
                     <p class="pet-type">${pet.type}</p>
                     <img class="pet-img" src="${pet.url}" alt="">

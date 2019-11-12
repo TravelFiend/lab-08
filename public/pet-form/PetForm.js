@@ -18,7 +18,6 @@ class PetForm extends Component {
 
             try {
                 const saved = await addPet(pet);
-                console.log(saved);
                 window.location = `pet-list.html?id=${saved.id}`;
             }
             catch (err) {
