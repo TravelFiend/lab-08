@@ -6,9 +6,9 @@ class PetDetail extends Component {
         // const json = JSON.stringify(pet, true, 4);
         return /*html*/ `
             <div class="details">
-                <p>ID --------------- ${pet.id}</p>
-                <p>Name ---------- ${pet.name}</p>
-                <p>Type ----------- ${pet.type}</p>
+                <p>ID: --------------- ${pet.id}</p>
+                <p>Name: ---------- ${pet.name}</p>
+                <p>Type: ----------- ${pet.type}</p>
                 <p>Image Url: ---- ${pet.url}</p>
                 <p>Age:------------ ${pet.name}</p>
                 <p>Flies?: -------- ${pet.name}</p>
