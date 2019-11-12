@@ -68,7 +68,7 @@ app.get('/api/pets/:id', async(req, res) => {
                 error: `Pet id does not exist.`
             });
         } else {
-            ReadableStream.json(result.rows[0]);
+            res.json(result.rows[0]);
         }
 
         res.json(result.rows);

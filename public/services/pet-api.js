@@ -1,6 +1,14 @@
 const URL = '/api';
 
-export async function getPets(id) {
+export async function getPets() {
+    const url = `${URL}/pets`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+}
+
+export async function getPet(id) {
     const url = `${URL}/pets/${id}`;
 
     const response = await fetch(url);
@@ -16,7 +24,7 @@ export async function getTypes() {
     return data;
 }
 
-export async function addPets(pet) {
+export async function addPet(pet) {
     const url = `${URL}/pets`;
 
     const response = await fetch(url, {

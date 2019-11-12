@@ -2,7 +2,7 @@ import Component from '../Component.js';
 import Header from '../common/Header.js';
 import Loading from '../common/Loading.js';
 import PetDetail from './PetDetail.js';
-import { getPets } from '../services/pet-api.js';
+import { getPet } from '../services/pet-api.js';
 
 class PetDetailApp extends Component {
 
@@ -12,9 +12,7 @@ class PetDetailApp extends Component {
 
         const main = dom.querySelector('main');
 
-        const loading = new Loading({
-            loading: true
-        });
+        const loading = new Loading({ loading: true });
         main.appendChild(loading.renderDOM());
 
         // extracting query param for id of pet to get
@@ -29,7 +27,7 @@ console.log(id);
         }
 
         try {
-            const pet = await getPets(id);
+            const pet = await getPet(id);
             console.log(pet);
             
             const petDetail = new PetDetail({ pet });

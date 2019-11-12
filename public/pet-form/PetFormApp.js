@@ -18,16 +18,12 @@ class PetFormApp extends Component {
 
         try {
             const types = await getTypes();
-            const petForm = new PetForm({
-                types
-            });
+            const petForm = new PetForm({ types });
             setTimeout(() => main.appendChild(petForm.renderDOM()), 2000);
         } catch (err) {
             console.log('Load pets failed\n', err);
         } finally {
-            setTimeout(() => loading.update({
-                loading: false
-            }), 2000);
+            setTimeout(() => loading.update({ loading: false }), 2000);
         }
     }
 

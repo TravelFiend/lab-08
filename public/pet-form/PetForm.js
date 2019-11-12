@@ -1,5 +1,5 @@
 import Component from '../Component.js';
-import { addPets } from '../services/pet-api.js';
+import { addPet } from '../services/pet-api.js';
 
 class PetForm extends Component {
     onRender(form){
@@ -17,7 +17,7 @@ class PetForm extends Component {
             };
 
             try {
-                const saved = await addPets(pet);
+                const saved = await addPet(pet);
                 console.log(saved);
                 window.location = `pet-list.html?id=${saved.id}`;
             }
