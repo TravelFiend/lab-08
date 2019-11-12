@@ -10,8 +10,8 @@ class PetDetail extends Component {
                 <p>Name: ---------- ${pet.name}</p>
                 <p>Type: ----------- ${pet.type}</p>
                 <p>Image Url: ---- ${pet.url}</p>
-                <p>Age:------------ ${pet.name}</p>
-                <p>Flies?: -------- ${pet.name}</p>
+                <p>Age:------------ ${pet.age}</p>
+                <p>Flies?: -------- ${pet.flies}</p>
             </div>
         `;
     }
