@@ -29,7 +29,7 @@ async function run() {
                 type_id INTEGER NOT NULL REFERENCES types(id),
                 url VARCHAR(256) NOT NULL,
                 age INTEGER NOT NULL,
-                flies BOOLEAN
+                flies BOOLEAN NOT NULL
             );
         `);
 

@@ -88,7 +88,7 @@ app.post('/api/pets', async(req, res) => {
             VALUES ($1, $2, $3, $4, $5)
             RETURNING *;
         `,
-        [pet.name, pet.typeId, pet.url, pet.age, pet.canFly]
+        [pet.name, pet.typeId, pet.url, pet.age, pet.flies]
         );
 
         res.json(result.rows[0]);
