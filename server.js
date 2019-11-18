@@ -121,7 +121,7 @@ app.get('/api/types', async(req, res) => {
     }
 });
 
-app.delete('/api/pets/:id', async (req, res) => {
+app.delete('/api/pets/:id', async(req, res) => {
     const id = req.params.id;
 
     try {
