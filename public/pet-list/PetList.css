@@ -1,0 +1,9 @@
+.pets {
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 95vw;
+}
