@@ -1,6 +1,19 @@
 import Component from '../Component.js';
 
 class PetItem extends Component {
+    onRender(el) {
+        const pet = this.props.pet;
+
+        const onRemove = this.props.onRemove;
+
+        const del = el.querySelector('.del');
+        del.addEventListener('click', event => {
+            event.preventDefault();
+
+            onRemove(pet);
+        });
+    }
+    
     renderHTML() {
         const pet = this.props.pet;
 
@@ -13,6 +26,7 @@ class PetItem extends Component {
                     <p class="age">Age: ${pet.age}</p>
                     <p>Flies: ${pet.flies}</p>
                 </a>
+                <button class="del">Delete Pet</button>
             </li>
         `;
     }

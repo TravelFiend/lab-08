@@ -121,6 +121,25 @@ app.get('/api/types', async(req, res) => {
     }
 });
 
+app.delete('/api/pets/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const result = await client.query(`
+            DELETE FROM pets
+            WHERE id = $1
+            RETURNING *;
+        `, [id]);
+
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log('server running on PORT', PORT);

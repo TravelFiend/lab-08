@@ -38,3 +38,32 @@ export async function addPet(pet) {
     const data = await response.json();
     return data;
 }
+
+export async function updatePet(pet) {
+    const url = `${URL}/pets/${pet.id}`;
+
+    const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pet)
+    });
+
+    const data = await response.json();
+    return data;
+}
+
+export async function removePet(id) {
+    const url = `${URL}/pets/${id}`;
+
+    const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
+
+    const data = await response.json();
+    return data;
+}
